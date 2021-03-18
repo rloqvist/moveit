@@ -36,7 +36,6 @@ exports.handler = async ({ body }) => {
         countrycode: "se",
         confidence: 5,
       }).reduce((acc, [key, value]) => `${acc}&${key}=${value}`, "?");
-    console.log(url);
     const result = await fetch(url);
     if (result.status === 200) {
       const data = await result.json();

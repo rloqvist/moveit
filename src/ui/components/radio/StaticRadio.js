@@ -1,10 +1,6 @@
-import React, { useRef } from "react";
-import styled from "styled-components";
-import { theme, ifProp } from "styled-tools";
+import React from "react";
 
-import { useFormState } from "utils/formState";
-
-import { StyledRadioWrapper, StyledRadioButton, StyledError } from "./style";
+import { StyledRadioWrapper, StyledRadioButton } from "./style";
 
 const StaticRadio = ({ value, options, name }) => (
   <StyledRadioWrapper>

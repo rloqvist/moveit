@@ -3,15 +3,7 @@ import styled from "styled-components";
 import { theme } from "styled-tools";
 import { useHistory } from "react-router-dom";
 
-import header from "res/img/moveit-header-desktop.png";
-import { Textable } from "ui/components/input/Textable";
-import { Searchable } from "ui/components/input/Searchable";
-import { Separable } from "ui/components/input/Separable";
-import { WrappedFormState } from "utils/formState";
-import { schema, initialValues } from "utils/validation";
-import { useFormState } from "utils/formState";
 import { request } from "utils/request";
-import { Section } from "ui/components/Section";
 
 const StyledAcceptButton = styled.button`
   margin-left: auto;
@@ -52,7 +44,6 @@ export const AcceptButton = ({ offerId }) => {
     setLoading(true);
     const url = `${baseUrl}/offers/accept?offerId=${offerId}`;
     request({ url }).then((result) => {
-      console.log("result", result);
       history.push(`/thank-you/${offerId}`);
     });
   };

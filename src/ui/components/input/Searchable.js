@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { useFormState } from "utils/formState";
 
@@ -10,7 +10,7 @@ const Searchable = ({ name, labelKey, onSearch, ...props }) => {
   const [timer, setTimer] = useState(null);
   const [options, setOptions] = useState([]);
   const [open, setOpen] = useState();
-  const { focus, elem } = useFocus(name);
+  const { focus } = useFocus(name);
   const { update, validate, errors, values } = useFormState();
 
   const asyncChange = (value) => {
@@ -32,9 +32,9 @@ const Searchable = ({ name, labelKey, onSearch, ...props }) => {
   useEffect(() => {
     focus.ref.current.addEventListener("focusin", handleFocus(true));
     focus.ref.current.addEventListener("focusout", handleFocus(false));
+    // eslint-disable-next-line
   }, []);
 
-  const value = values[name];
   const label = values[name]?.[labelKey];
 
   return (

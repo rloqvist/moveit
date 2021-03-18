@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "styled-tools";
-import { useParams } from "react-router-dom";
 
 const StyledSection = styled.div`
   position: relative;

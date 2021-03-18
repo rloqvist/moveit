@@ -1,8 +1,5 @@
-import React, { useRef } from "react";
 import styled from "styled-components";
 import { theme, ifProp } from "styled-tools";
-
-import { useFormState } from "utils/formState";
 
 export const StyledRadioWrapper = styled.div`
   margin-top: 16px;

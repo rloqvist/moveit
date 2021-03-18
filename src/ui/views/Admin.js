@@ -82,7 +82,6 @@ const Admin = () => {
       <Section title="Här kan du se alla offerter">
         {offers.map((offer, index) => {
           const offerId = offer.ref["@ref"].id;
-          console.log("offerid", offerId);
           return (
             <StyledOffer accepted={offer.data.accepted}>
               <div>
