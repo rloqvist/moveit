@@ -1,7 +1,5 @@
-import React, { useRef, forwardRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import { theme } from "styled-tools";
-import NumberFormat from "react-number-format";
 
 export const StyledInputWrapper = styled.div`
   margin-top: 16px;

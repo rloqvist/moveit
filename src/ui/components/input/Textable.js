@@ -1,16 +1,13 @@
-import React, { useRef, forwardRef, useEffect, useState } from "react";
-import styled from "styled-components";
-import { theme } from "styled-tools";
-import NumberFormat from "react-number-format";
+import React from "react";
 
 import { useFormState } from "utils/formState";
 
-import { StyledInputWrapper, StyledError, StyledTag } from "./style";
+import { StyledInputWrapper, StyledError } from "./style";
 import { InputComponent } from "./InputComponent";
 import { useFocus } from "./useFocus";
 
 const Textable = ({ name, separable, ...props }) => {
-  const { elem, focus } = useFocus(name);
+  const { focus } = useFocus(name);
   const { update, validate, errors } = useFormState();
 
   return (

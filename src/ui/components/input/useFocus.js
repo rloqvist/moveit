@@ -1,7 +1,4 @@
-import React, { useRef, forwardRef, useEffect, useState } from "react";
-import styled from "styled-components";
-import { theme } from "styled-tools";
-import NumberFormat from "react-number-format";
+import { useRef, useEffect, useState } from "react";
 
 export const useFocus = (name) => {
   const [elem, setElem] = useState();
@@ -9,6 +6,7 @@ export const useFocus = (name) => {
 
   useEffect(() => {
     setElem(ref.current.querySelector(`input[name="${name}"]`));
+    // eslint-disable-next-line
   }, []);
 
   return { elem, focus: { ref, onClick: () => elem.focus() } };

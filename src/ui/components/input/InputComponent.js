@@ -1,6 +1,4 @@
-import React, { useRef, forwardRef, useEffect, useState } from "react";
-import styled from "styled-components";
-import { theme } from "styled-tools";
+import React from "react";
 import NumberFormat from "react-number-format";
 
 const noop = () => {};

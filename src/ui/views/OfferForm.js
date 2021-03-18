@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "styled-tools";
-import * as yup from "yup";
 
 import header from "res/img/moveit-header-desktop.png";
 import { Textable } from "ui/components/input/Textable";
-import { Searchable } from "ui/components/input/Searchable";
+//import { Searchable } from "ui/components/input/Searchable";
 import { Separable } from "ui/components/input/Separable";
 import { Radio } from "ui/components/Radio";
 import { WrappedFormState } from "utils/formState";

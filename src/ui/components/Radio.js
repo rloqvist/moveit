@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { theme, ifProp } from "styled-tools";
 
@@ -56,7 +56,7 @@ const StyledError = styled.div`
 `;
 
 const Radio = ({ options, name }) => {
-  const { values, update, validate, errors } = useFormState();
+  const { values, update, errors } = useFormState();
 
   return (
     <StyledRadioWrapper>

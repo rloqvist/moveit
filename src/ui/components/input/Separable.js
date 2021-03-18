@@ -1,7 +1,4 @@
-import React, { useRef, forwardRef, useEffect, useState } from "react";
-import styled from "styled-components";
-import { theme } from "styled-tools";
-import NumberFormat from "react-number-format";
+import React, { useEffect, useState } from "react";
 
 import { useFormState } from "utils/formState";
 
@@ -16,6 +13,7 @@ const Separable = ({ name, separable, ...props }) => {
 
   useEffect(() => {
     update({ name, value: tags });
+    // eslint-disable-next-line
   }, [tags.length]);
 
   const removeTag = (index) => (event) => {
