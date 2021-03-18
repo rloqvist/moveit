@@ -17,11 +17,9 @@ const WrappedFormState = ({ initialValues, schema, children }) => {
 
   const validate = (name, value) => {
     try {
-      console.log(name, value || values[name]);
       yup.reach(schema, name).validateSync(value || values[name]);
       setErrors((errors) => ({ ...errors, [name]: undefined }));
     } catch (error) {
-      console.log("error", error);
       if (error instanceof yup.ValidationError) {
         const message = error.params?.label || error.message;
         setErrors((errors) => ({ ...errors, [name]: message }));

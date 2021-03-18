@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import { theme, ifProp } from "styled-tools";
 
@@ -11,21 +11,14 @@ const StyledRadioWrapper = styled.div`
   align-items: center;
   cursor: text;
   position: relative;
-
-  & > input {
-    border: none;
-    width: fill-available;
-
-    :focus {
-      outline: none;
-    }
-  }
 `;
 
 const StyledRadioButton = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
+  padding: 4px;
+  margin: -4px;
 
   & > div {
     border-radius: 50%;
@@ -34,6 +27,10 @@ const StyledRadioButton = styled.div`
     border: 6px solid white;
     background: ${ifProp("active", theme("colors.mid"), "white")};
     margin-left: 16px;
+  }
+
+  :focus {
+    outline: 2px solid ${theme("colors.mid")};
   }
 
   & + & {
@@ -56,14 +53,27 @@ const StyledError = styled.div`
 `;
 
 const Radio = ({ options, name }) => {
+  const ref = useRef();
   const { values, update, errors } = useFormState();
 
   return (
-    <StyledRadioWrapper>
+    <StyledRadioWrapper ref={ref}>
       {options.map(({ value, label }, index) => {
         const active = value === values[name];
+
+        const handleUpdate = () => update({ name, value });
+
+        const handleKeyDown = (event) => [13, 32].includes(event?.keyCode) && handleUpdate();
+
         return (
-          <StyledRadioButton key={`${index}__${value}`} active={active} onClick={() => update({ name, value })}>
+          <StyledRadioButton
+            key={`${index}__${value}`}
+            id={`${name}__${value}`}
+            active={active}
+            onClick={handleUpdate}
+            tabIndex={0}
+            onKeyDown={handleKeyDown}
+          >
             {label}
             <div />
           </StyledRadioButton>

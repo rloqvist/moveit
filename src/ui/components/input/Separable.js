@@ -43,6 +43,15 @@ const Separable = ({ name, separable, ...props }) => {
     }
   };
 
+  const handleBlur = () => {
+    const value = elem.value;
+    elem.value = "";
+    if (value) {
+      addTag(value);
+    }
+    validate(name);
+  };
+
   return (
     <StyledInputWrapper {...focus}>
       {tags.map((tag, index) => {
@@ -52,13 +61,7 @@ const Separable = ({ name, separable, ...props }) => {
           </StyledTag>
         );
       })}
-      <InputComponent
-        onBlur={() => validate(name)}
-        onKeyDown={handleKeyDown}
-        onKeyUp={handleKeyUp}
-        name={name}
-        {...props}
-      />
+      <InputComponent onBlur={handleBlur} onKeyDown={handleKeyDown} onKeyUp={handleKeyUp} name={name} {...props} />
       {!!errors[name] && <StyledError>{errors[name]}</StyledError>}
     </StyledInputWrapper>
   );

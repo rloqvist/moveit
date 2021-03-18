@@ -109,10 +109,8 @@ const SubmitButton = () => {
   const { validateAll, errors } = useFormState();
 
   const disabled = Object.values(errors).filter(Boolean).length;
-  console.log("disabled", disabled);
 
   const handleSubmit = () => {
-    console.log("prrr");
     validateAll();
   };
 
