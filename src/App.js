@@ -1,17 +1,19 @@
 import React, { lazy, Suspense } from "react";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
-import { useResponsive } from "utils/responsive";
 import { ThemeWrapper } from "theme/ThemeWrapper";
 
 export const App = () => {
-  const screen = useResponsive();
-  const View = lazy(() => import(`ui/views/${screen}/View`));
-
   return (
     <ThemeWrapper>
-      <Suspense fallback={null}>
-        <View />
-      </Suspense>
+      <BrowserRouter>
+        <Suspense fallback={null}>
+          <Switch>
+            <Route path="/form" component={lazy(() => import(`ui/views/OfferForm`))} />
+            <Redirect to="/form" />
+          </Switch>
+        </Suspense>
+      </BrowserRouter>
     </ThemeWrapper>
   );
 };
