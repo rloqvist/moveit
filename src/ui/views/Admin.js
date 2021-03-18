@@ -71,7 +71,7 @@ const Admin = () => {
   const history = useHistory();
 
   useEffect(() => {
-    const url = `${baseUrl}/offers/list`;
+    const url = `${baseUrl}/list`;
     request({ url }).then((result) => {
       setOffers(result.offers);
     });

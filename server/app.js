@@ -20,25 +20,25 @@ app.post("/geolocate", async (req, res) => {
   });
 });
 
-app.post("/offers/create", async (req, res) => {
+app.post("/create", async (req, res) => {
   createOffer.handler({ body: JSON.stringify(req.body) }).then((result) => {
     res.send(JSON.parse(result.body));
   });
 });
 
-app.get("/offers/view", async (req, res) => {
+app.get("/view", async (req, res) => {
   viewOffer.handler({ queryStringParameters: req.query }).then((result) => {
     res.send(JSON.parse(result.body));
   });
 });
 
-app.get("/offers/accept", async (req, res) => {
+app.get("/accept", async (req, res) => {
   acceptOffer.handler({ queryStringParameters: req.query }).then((result) => {
     res.send(JSON.parse(result.body));
   });
 });
 
-app.get("/offers/list", async (req, res) => {
+app.get("/list", async (req, res) => {
   listOffers.handler().then((result) => {
     res.send(JSON.parse(result.body));
   });

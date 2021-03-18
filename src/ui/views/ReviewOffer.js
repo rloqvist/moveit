@@ -54,7 +54,7 @@ const ReviewOffer = () => {
   const { offerId } = useParams();
 
   useEffect(() => {
-    const url = `${baseUrl}/offers/view?offerId=${offerId}`;
+    const url = `${baseUrl}/view?offerId=${offerId}`;
     request({ url }).then((result) => {
       setOffer(result.offer);
     });

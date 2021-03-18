@@ -42,7 +42,7 @@ export const AcceptButton = ({ offerId }) => {
 
   const handleSubmit = () => {
     setLoading(true);
-    const url = `${baseUrl}/offers/accept?offerId=${offerId}`;
+    const url = `${baseUrl}/accept?offerId=${offerId}`;
     request({ url }).then((result) => {
       history.push(`/thank-you/${offerId}`);
     });

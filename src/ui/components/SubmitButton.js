@@ -41,7 +41,7 @@ export const SubmitButton = () => {
     if (validateAll()) return;
     setTimeout(() => {
       if (disabled) return;
-      const url = baseUrl + "/offers/create";
+      const url = baseUrl + "/create";
       const data = { offer: values };
       request({ url, data, method: "POST" }).then((result) => {
         const offerId = result.ref["@ref"].id;
