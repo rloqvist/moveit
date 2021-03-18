@@ -44,14 +44,16 @@ const baseUrl =
 
 export const AcceptButton = ({ offerId }) => {
   const [loading, setLoading] = useState();
-  //const history = useHistory();
+  const history = useHistory();
 
   const disabled = loading;
 
   const handleSubmit = () => {
+    setLoading(true);
     const url = `${baseUrl}/offers/accept?offerId=${offerId}`;
     request({ url }).then((result) => {
       console.log("result", result);
+      history.push(`/thank-you/${offerId}`);
     });
   };
 

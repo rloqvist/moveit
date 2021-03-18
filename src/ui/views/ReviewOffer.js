@@ -32,6 +32,9 @@ const StyledStaticField = styled.div`
 `;
 
 const StyledSummary = styled.div`
+  max-width: 85%;
+  word-break: break-all;
+
   h2 {
     margin-top: 16px;
   }
@@ -122,9 +125,11 @@ const ReviewOffer = () => {
             För att se offerten igen klicka här <a href={`/review/${offerId}`}>{window.location.href}</a>
           </p>
         </StyledSummary>
-        <div>
-          <AcceptButton offerId={offerId} />
-        </div>
+        {!offer.accepted && (
+          <div>
+            <AcceptButton offerId={offerId} />
+          </div>
+        )}
       </Section>
     </Layout>
   ) : null;

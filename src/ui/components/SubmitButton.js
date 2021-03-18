@@ -43,11 +43,10 @@ export const SubmitButton = () => {
   const history = useHistory();
   const { validateAll, errors, values } = useFormState();
 
-  const disabled = Object.values(errors).filter(Boolean).length || loading;
+  const disabled = Object.values(errors).filter(Boolean).length;
 
   const handleSubmit = () => {
-    setLoading(true);
-    validateAll();
+    if (validateAll()) return;
     setTimeout(() => {
       if (disabled) return;
       const url = baseUrl + "/offers/create";
@@ -60,7 +59,7 @@ export const SubmitButton = () => {
         .finally(() => {
           setLoading(false);
         });
-    }, 250);
+    }, 500);
   };
 
   return (

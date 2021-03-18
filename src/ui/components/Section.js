@@ -9,7 +9,15 @@ const StyledSection = styled.div`
 
   & > div:first-child {
     position: absolute;
-    left: -60px;
+
+    @media only screen and (min-width: 640px) {
+      left: -60px;
+    }
+
+    @media only screen and (max-width: 640px) {
+      right: 0;
+    }
+
     height: 60px;
     width: 60px;
     display: flex;

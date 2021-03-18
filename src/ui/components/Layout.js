@@ -21,8 +21,16 @@ const StyledLayout = styled.div`
     max-width: 100%;
   }
 
-  & > div {
-    margin: 0 144px;
+  @media only screen and (min-width: 640px) {
+    & > div {
+      margin: 0 144px;
+    }
+  }
+
+  @media only screen and (max-width: 640px) {
+    & > div {
+      margin: 0 12px;
+    }
   }
 `;
 

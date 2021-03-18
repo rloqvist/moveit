@@ -40,6 +40,7 @@ const WrappedFormState = ({ initialValues, schema, children }) => {
       }
     });
     setErrors(messages);
+    return Object.values(messages).filter(Boolean).length;
   };
 
   const formState = { values, errors, update, validate, validateAll };

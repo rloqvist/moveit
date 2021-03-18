@@ -4,6 +4,8 @@ const cors = require("cors");
 const geolocate = require("../lambda/geolocate.js");
 const createOffer = require("../lambda/createOffer.js");
 const viewOffer = require("../lambda/viewOffer.js");
+const acceptOffer = require("../lambda/acceptOffer.js");
+const listOffers = require("../lambda/listOffers.js");
 
 const app = express();
 const port = 3001;
@@ -25,8 +27,19 @@ app.post("/offers/create", async (req, res) => {
 });
 
 app.get("/offers/view", async (req, res) => {
-  console.log("anything??", req.query);
   viewOffer.handler({ queryStringParameters: req.query }).then((result) => {
+    res.send(JSON.parse(result.body));
+  });
+});
+
+app.get("/offers/accept", async (req, res) => {
+  acceptOffer.handler({ queryStringParameters: req.query }).then((result) => {
+    res.send(JSON.parse(result.body));
+  });
+});
+
+app.get("/offers/list", async (req, res) => {
+  listOffers.handler().then((result) => {
     res.send(JSON.parse(result.body));
   });
 });

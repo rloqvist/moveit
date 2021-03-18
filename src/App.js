@@ -10,7 +10,9 @@ export const App = () => {
         <Suspense fallback={null}>
           <Switch>
             <Route path="/form" component={lazy(() => import(`ui/views/OfferForm`))} />
+            <Route path="/admin" component={lazy(() => import(`ui/views/Admin`))} />
             <Route path="/review/:offerId" component={lazy(() => import(`ui/views/ReviewOffer`))} />
+            <Route path="/thank-you/:offerId" component={lazy(() => import(`ui/views/ThankYou`))} />
             <Redirect to="/form" />
           </Switch>
         </Suspense>
