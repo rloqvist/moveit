@@ -83,7 +83,7 @@ const Admin = () => {
         {offers.map((offer, index) => {
           const offerId = offer.ref["@ref"].id;
           return (
-            <StyledOffer accepted={offer.data.accepted}>
+            <StyledOffer accepted={offer.data.accepted} key={`admin__${index}`}>
               <div>
                 <div>
                   {offer.data.given_name} {offer.data.family_name}

@@ -9,5 +9,5 @@ export const useFocus = (name) => {
     // eslint-disable-next-line
   }, []);
 
-  return { elem, focus: { ref, onClick: () => elem.focus() } };
+  return { elem, focus: { ref, onClick: () => elem?.focus() } };
 };

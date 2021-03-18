@@ -48,8 +48,12 @@ const Searchable = ({ name, labelKey, onSearch, ...props }) => {
       {open && (
         <StyledOptionsList>
           {options.length ? (
-            options.map((option) => {
-              return <div onClick={() => update({ name, ...option })}>{option.label}</div>;
+            options.map((option, index) => {
+              return (
+                <div onClick={() => update({ name, ...option })} key={`option__${index}`}>
+                  {option.label}
+                </div>
+              );
             })
           ) : (
             <div>Skriv minst tre tecken för att söka</div>
