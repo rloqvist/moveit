@@ -14,6 +14,8 @@ const shape = {
     .min(8, phone)
     .max(14, phone)
     .required(required),
+  move_from: yup.object().nullable().required(required),
+  move_to: yup.object().nullable().required(required),
   area: yup.string().required(required),
   co_area: yup.string(),
   heavy_objects: yup.array().of(yup.string()),

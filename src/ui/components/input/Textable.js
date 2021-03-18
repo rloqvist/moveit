@@ -6,7 +6,7 @@ import { StyledInputWrapper, StyledError } from "./style";
 import { InputComponent } from "./InputComponent";
 import { useFocus } from "./useFocus";
 
-const Textable = ({ name, separable, ...props }) => {
+export const Textable = ({ name, ...props }) => {
   const { focus } = useFocus(name);
   const { update, validate, errors } = useFormState();
 
@@ -22,5 +22,3 @@ const Textable = ({ name, separable, ...props }) => {
     </StyledInputWrapper>
   );
 };
-
-export { Textable };

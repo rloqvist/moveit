@@ -54,3 +54,26 @@ export const StyledTag = styled.span`
     font-size: 14px;
   }
 `;
+
+export const StyledOptionsList = styled.div`
+  position: absolute;
+  background: ${theme("colors.base")};
+  top: 60px;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background: white;
+
+  & > div {
+    padding: 16px;
+    cursor: pointer;
+
+    :hover {
+      background: rgba(0, 0, 0, 0.04);
+    }
+  }
+
+  & > div + div {
+    border-top: 1px solid #e0e0e0;
+  }
+`;

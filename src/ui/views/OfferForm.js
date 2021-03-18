@@ -4,12 +4,13 @@ import { theme } from "styled-tools";
 
 import header from "res/img/moveit-header-desktop.png";
 import { Textable } from "ui/components/input/Textable";
-//import { Searchable } from "ui/components/input/Searchable";
+import { Searchable } from "ui/components/input/Searchable";
 import { Separable } from "ui/components/input/Separable";
 import { Radio } from "ui/components/Radio";
 import { WrappedFormState } from "utils/formState";
 import { schema, initialValues } from "utils/validation";
 import { useFormState } from "utils/formState";
+import { request } from "utils/request";
 
 const StyledOfferForm = styled.div`
   max-width: 1280px;
@@ -122,6 +123,17 @@ const SubmitButton = () => {
 };
 
 const OfferForm = () => {
+  const handleSearch = async (q) => {
+    const url =
+      process.env.NODE_ENV === "production"
+        ? `https://${window.location.host}/.netlify/functions/geolocate`
+        : "http://localhost:3001/geolocate";
+    const data = await request({ url, data: { q }, method: "POST" });
+    const options = data.results.map((result) => ({ label: result.formatted, value: result }));
+
+    return options;
+  };
+
   return (
     <WrappedFormState initialValues={initialValues} schema={schema}>
       <StyledOfferForm>
@@ -156,11 +168,11 @@ const OfferForm = () => {
             <form>
               <div>
                 <div>från vilken adress ska du flytta?</div>
-                <input placeholder="adress, postnummer, stad" />
+                <Searchable name="move_from" placeholder="adress, postnummer, stad" onSearch={handleSearch} />
               </div>
               <div>
                 <div>till vilken adress ska du flytta?</div>
-                <input placeholder="adress, postnummer, stad" />
+                <Searchable name="move_to" placeholder="adress, postnummer, stad" onSearch={handleSearch} />
               </div>
             </form>
           </StyledFormSection>

@@ -9,6 +9,7 @@ const WrappedFormState = ({ initialValues, schema, children }) => {
   const [errors, setErrors] = useState({});
 
   const update = ({ name, value }) => {
+    console.log("updating", name, value);
     setValues((v) => ({ ...v, [name]: value }));
     if (errors[name]) {
       validate(name, value);
