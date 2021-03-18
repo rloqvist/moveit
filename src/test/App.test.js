@@ -1,9 +1,8 @@
-import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import React from "react";
+import renderer from "react-test-renderer";
 import { App } from "App";
 
-test("renders moveit text", () => {
-  render(<App />);
-  const linkElement = screen.getByText(/moveit/i);
-  expect(linkElement).toBeInTheDocument();
+it("App renders correctly", () => {
+  const tree = renderer.create(<App />).toJSON();
+  expect(tree).toMatchSnapshot();
 });

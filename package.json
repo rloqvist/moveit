@@ -12,6 +12,7 @@
     "react-number-format": "^4.5.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-test-renderer": "^17.0.1",
     "styled-components": "^5.2.1",
     "styled-tools": "^1.7.2",
     "yup": "^0.32.9"
@@ -53,6 +54,7 @@
   "devDependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "faunadb": "^4.1.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.1.7",
     "lodash": "^4.17.21",

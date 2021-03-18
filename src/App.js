@@ -10,6 +10,7 @@ export const App = () => {
         <Suspense fallback={null}>
           <Switch>
             <Route path="/form" component={lazy(() => import(`ui/views/OfferForm`))} />
+            <Route path="/review/:offerId" component={lazy(() => import(`ui/views/ReviewOffer`))} />
             <Redirect to="/form" />
           </Switch>
         </Suspense>

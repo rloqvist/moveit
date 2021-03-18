@@ -19,7 +19,7 @@ const Searchable = ({ name, labelKey, onSearch, ...props }) => {
     setTimer(
       setTimeout(() => {
         onSearch(value).then(setOptions);
-      }, 400),
+      }, 2000),
     );
   };
 
@@ -32,19 +32,10 @@ const Searchable = ({ name, labelKey, onSearch, ...props }) => {
   useEffect(() => {
     focus.ref.current.addEventListener("focusin", handleFocus(true));
     focus.ref.current.addEventListener("focusout", handleFocus(false));
-    return () => {
-      focus.ref.current.removeEventListener("focusin", handleFocus(true));
-      focus.ref.current.removeEventListener("focusout", handleFocus(false));
-    };
   }, []);
 
-  //console.log("active???", document.activeElement, elem, document.activeElement === elem);
-
   const value = values[name];
-
   const label = values[name]?.[labelKey];
-  console.log("value", value, label);
-  //const open = document.activeElement === elem;
 
   return (
     <StyledInputWrapper {...focus}>
