@@ -4,7 +4,7 @@ const LRU = require("lru-cache");
 
 const { set, get } = lodash;
 
-const GEOCODE_TOKEN = "5b1615cc7ade40928f60f4266ddeb3e2";
+const GEOCODE_TOKEN = "caa4b17df6e349f486afc355e5f2d344";
 const GEOCODE_URL = "https://api.opencagedata.com/geocode/v1/json";
 
 const cache = new LRU();
